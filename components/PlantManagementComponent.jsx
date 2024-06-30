@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import styles from "../styles/PlantManagementComponent.module.css";
 
@@ -7,10 +7,10 @@ export default function PlantManagementComponent({ plantManagementContract }) {
   const [plants, setPlants] = useState([]);
 
   useEffect(() => {
-    if (address) {
+    if (plantManagementContract && address) {
       fetchPlants();
     }
-  }, [address]);
+  }, [plantManagementContract, address]);
 
   const fetchPlants = async () => {
     try {
@@ -32,11 +32,11 @@ export default function PlantManagementComponent({ plantManagementContract }) {
       <h2 className={styles.title}>Your Plants</h2>
       <ul className={styles.plantList}>
         {plants.map((plant) => (
-          <li key={plant.id} className={styles.plantItem}>
-            <p className={styles.plantDetail}>Plant ID: {plant.id}</p>
-            <p className={styles.plantDetail}>Number of Flowers: {plant.numberOfFlowers}</p>
-            <p className={styles.plantDetail}>Immature Berries: {plant.immatureBerries}</p>
-            <p className={styles.plantDetail}>Mature Berries: {plant.matureBerries}</p>
+          <li key={plant.id.toString()} className={styles.plantItem}>
+            <p className={styles.plantDetail}>Plant ID: {plant.id.toString()}</p>
+            <p className={styles.plantDetail}>Number of Flowers: {plant.numberOfFlowers.toString()}</p>
+            <p className={styles.plantDetail}>Immature Berries: {plant.immatureBerries.toString()}</p>
+            <p className={styles.plantDetail}>Mature Berries: {plant.matureBerries.toString()}</p>
           </li>
         ))}
       </ul>
