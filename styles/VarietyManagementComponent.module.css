@@ -5,28 +5,19 @@
   margin-bottom: 20px;
 }
 
-h2 {
+.title {
   text-align: center;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
+.plantList {
+  list-style: none;
+  padding: 0;
 }
 
-.input {
+.plantItem {
   margin-bottom: 10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
-.button {
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #28a745;
-  color: white;
-  cursor: pointer;
-  text-align: center;
+.plantDetail {
+  margin: 5px 0;
 }
