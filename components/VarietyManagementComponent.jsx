@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/VarietyManagementComponent.module.css";
 
 export default function VarietyManagementComponent({ varietyManagementContract }) {
@@ -11,20 +11,23 @@ export default function VarietyManagementComponent({ varietyManagementContract }
   const [sweetnessLevel, setSweetnessLevel] = useState(0);
   const [pestResistance, setPestResistance] = useState(0);
 
-  const registerVariety = async () => {
+  const registerVariety = async (e) => {
+    e.preventDefault();
     try {
       await varietyManagementContract.registerVariety(
         name,
-        frostResistance,
-        diseaseResistance,
-        ripeningRate,
-        fruitfulness,
-        berrySize,
-        sweetnessLevel,
-        pestResistance
+        parseInt(frostResistance),
+        parseInt(diseaseResistance),
+        parseInt(ripeningRate),
+        parseInt(fruitfulness),
+        parseInt(berrySize),
+        parseInt(sweetnessLevel),
+        parseInt(pestResistance)
       );
+      alert("Variety registered successfully!");
     } catch (error) {
       console.error("Error registering variety:", error);
+      alert("Error registering variety");
     }
   };
 
