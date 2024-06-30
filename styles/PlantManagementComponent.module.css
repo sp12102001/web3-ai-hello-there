@@ -5,15 +5,19 @@
   margin-bottom: 20px;
 }
 
-h2 {
+.title {
   text-align: center;
 }
 
-ul {
+.plantList {
   list-style: none;
   padding: 0;
 }
 
-li {
+.plantItem {
   margin-bottom: 10px;
+}
+
+.plantDetail {
+  margin: 5px 0;
 }
