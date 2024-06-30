@@ -1,12 +1,14 @@
-import styles from "../styles/Home.module.css";
+import React from "react";
 import InstructionsComponent from "../components/InstructionsComponent";
 import PlantManagementComponent from "../components/PlantManagementComponent";
 import VarietyManagementComponent from "../components/VarietyManagementComponent";
-import { usePlantManagement, useVarietyManagement } from "../hooks/contracts";
+import { usePlantManagement, useVarietyManagement, useAgent } from "../hooks/contracts";
+import styles from "../styles/MainLayout.module.css";
 
 export default function MainLayout({ children }) {
   const plantManagementContract = usePlantManagement();
   const varietyManagementContract = useVarietyManagement();
+  const agentContract = useAgent();
 
   return (
     <div className={styles.container}>
@@ -20,7 +22,7 @@ export default function MainLayout({ children }) {
         {children}
       </main>
       <footer className={styles.footer}>
-        <p>&copy; 2023 Strawberry Farm Game. All rights reserved.</p>
+        <p>&copy; 2024 Strawberry Farm Game. All rights reserved.</p>
       </footer>
     </div>
   );
